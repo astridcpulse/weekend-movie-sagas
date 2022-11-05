@@ -32,7 +32,13 @@ function DetailsPage(){
             <h1> details page</h1>
            <h1> {thisMovie.title}</h1>
            <img src={thisMovie.poster} />
-           
+           <h3>Genres:</h3>
+           {genres.map(genre => 
+                <p>{genre.name}</p>
+            )}
+            <h4>Description:</h4>
+           <p>{thisMovie.description}</p>
+        </>
     );
 
 }
