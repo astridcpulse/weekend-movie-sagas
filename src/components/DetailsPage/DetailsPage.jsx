@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
+
 import {axios} from 'axios';
 
 function DetailsPage(){
@@ -8,6 +9,7 @@ function DetailsPage(){
     const movies = useSelector(store => store.movies);
     const genres = useSelector(store => store.genres);
 
+    const history = useHistory();
     const dispatch = useDispatch();
     const params = useParams();
     const chosenMovie = ( movies.find((movie) => {
@@ -38,6 +40,8 @@ function DetailsPage(){
             )}
             <h4>Description:</h4>
            <p>{thisMovie.description}</p>
+
+           <button onClick={()=> history.push('/')}>Go Back</button>
         </>
     );
 
