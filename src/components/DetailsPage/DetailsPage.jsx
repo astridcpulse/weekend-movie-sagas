@@ -18,10 +18,10 @@ function DetailsPage(){
 
     useEffect(() => {
         setThisMovie(chosenMovie);
-        // dispatch({
-        //     type: "GET_DETAILS",
-        //     payload: 
-        // })
+        dispatch({
+            type: "GET_GENRES",
+            payload: params.id
+        })
     },[params.id])
 
 
