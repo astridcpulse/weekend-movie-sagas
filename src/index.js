@@ -19,7 +19,7 @@ function* rootSaga() {
 
 function* getGenres(action){
     const genres = yield axios.get(`api/genre/${action.payload}` )
-    console.log('genre response', genres.data);
+    console.log('genre response', genres.data.genres);
 
     yield put({
         type: 'SET_GENRES',

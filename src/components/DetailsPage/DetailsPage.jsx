@@ -6,6 +6,7 @@ import {axios} from 'axios';
 function DetailsPage(){
     const [thisMovie, setThisMovie] = useState('');
     const movies = useSelector(store => store.movies);
+    const genres = useSelector(store => store.genres);
 
     const dispatch = useDispatch();
     const params = useParams();
@@ -22,6 +23,7 @@ function DetailsPage(){
             type: "GET_GENRES",
             payload: params.id
         })
+    
     },[params.id])
 
 
@@ -29,6 +31,7 @@ function DetailsPage(){
         <>
             <h1> details page</h1>
            <h1> {thisMovie.title}</h1>
+           
         </>
     );
 
