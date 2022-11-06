@@ -18,11 +18,12 @@ function DetailsPage(){
         }
     }))
 
+    console.log('genres', genres);
 
     useEffect(() => {
         setThisMovie(chosenMovie);
         dispatch({
-            type: "GET_GENRES",
+            type: 'GET_GENRES',
             payload: params.id
         })
     
@@ -35,7 +36,7 @@ function DetailsPage(){
            <h1> {thisMovie.title}</h1>
            <img src={thisMovie.poster} />
            <h3>Genres:</h3>
-           {genres.map(genre => 
+           {genres && genres.map(genre => 
                 <p>{genre.name}</p>
             )}
             <h4>Description:</h4>

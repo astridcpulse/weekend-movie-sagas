@@ -9,7 +9,6 @@ router.get('/:id', (req, res) => {
   LEFT JOIN "genres" ON "genres".id = "movies_genres".genre_id
   WHERE "movies".id = $1
   GROUP BY "movies".id;
-  
   `;
   pool.query(sqlText, [req.params.id])
     .then(dbRes => {
