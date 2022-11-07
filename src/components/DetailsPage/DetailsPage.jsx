@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { Button } from '@mui/material';
-import { red } from '@mui/material/colors';
-import { ThemeProvider, createMuiTheme, typography } from '@mui/material';
+// import { red } from '@mui/material/colors';
+import { ThemeProvider, createMuiTheme, Typography } from '@mui/material';
 import {axios} from 'axios';
 
 function DetailsPage(){
@@ -24,6 +24,7 @@ function DetailsPage(){
 
     useEffect(() => {
         setThisMovie(chosenMovie);
+        dispatch({ type: 'FETCH_MOVIES' });
         dispatch({
             type: 'GET_GENRES',
             payload: params.id
@@ -35,7 +36,10 @@ function DetailsPage(){
     return(
         <>
 
-           <h1> {thisMovie.title}</h1>
+           <Typography 
+                variant="h3"
+                align='center'
+            > {thisMovie.title}</Typography>
            <img src={thisMovie.poster} />
            <h3>Genres:</h3>
            {genres && genres.map(genre => 
@@ -47,6 +51,7 @@ function DetailsPage(){
            
            <Button 
                 variant='contained'
+                
                 onClick={()=> history.push('/')}>Go Back</Button>
             
         </>

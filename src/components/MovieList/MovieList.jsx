@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import './MovieList.css'
 import { red } from '@mui/material/colors';
-import { Box, ThemeProvider, createTheme } from '@mui/material';
-
+import { Box, ThemeProvider, createTheme, Typography } from '@mui/material';
 function MovieList() {
 
     const dispatch = useDispatch();
@@ -15,7 +14,6 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    
 
     return (
         <main>
@@ -33,7 +31,7 @@ function MovieList() {
                             }}
                             >
                         <div key={movie.id} >
-                            <h3>{movie.title}</h3>
+                            <Typography variant="h5">{movie.title}</Typography>
                             <img 
                                 onClick={() => history.push(`/${movie.id}`)} 
                                 src={movie.poster} 
