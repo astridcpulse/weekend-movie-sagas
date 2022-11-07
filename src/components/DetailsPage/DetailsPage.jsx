@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-
+import { Button } from '@mui/material';
+import { red } from '@mui/material/colors';
+import { ThemeProvider, createMuiTheme, typography } from '@mui/material';
 import {axios} from 'axios';
 
 function DetailsPage(){
@@ -29,10 +31,10 @@ function DetailsPage(){
     
     },[params.id])
 
-
+    
     return(
         <>
-            
+
            <h1> {thisMovie.title}</h1>
            <img src={thisMovie.poster} />
            <h3>Genres:</h3>
@@ -42,7 +44,11 @@ function DetailsPage(){
             <h4>Description:</h4>
            <p>{thisMovie.description}</p>
 
-           <button onClick={()=> history.push('/')}>Go Back</button>
+           
+           <Button 
+                variant='contained'
+                onClick={()=> history.push('/')}>Go Back</Button>
+            
         </>
     );
 

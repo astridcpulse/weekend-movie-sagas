@@ -1,12 +1,17 @@
 import {HashRouter as Router, Route} from 'react-router-dom';
-import './App.css';
+// import './App.css';
 import MovieList from '../MovieList/MovieList'
 import DetailsPage from '../DetailsPage/DetailsPage'
+import { ThemeProvider, createTheme } from '@mui/material';
+
+
 
 function App() {
   return (
+
     <div className="App">
       <h1>The Movies Saga!</h1>
+
       <Router>        
         <Route path="/" exact>
           <MovieList />
@@ -20,6 +25,7 @@ function App() {
 
         {/* STRETCH: Add Movie page */}
       </Router>
+     
     </div>
   );
 }

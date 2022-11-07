@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import './MovieList.css'
+import { red } from '@mui/material/colors';
+import { Box, ThemeProvider, createTheme } from '@mui/material';
 
 function MovieList() {
 
@@ -13,14 +15,23 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-   
+    
 
     return (
         <main>
             
+
             <section className="movies">
                 {movies.map(movie => {
                     return (
+                       
+                        <Box sx={{ 
+                            p: 3,
+                            '&:hover': {
+                            opacity: [0.9, 0.8, 0.7],
+                            },
+                            }}
+                            >
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
                             <img 
@@ -30,9 +41,12 @@ function MovieList() {
                             />
                            
                         </div>
+                        </Box>
+                        
                     );
                 })}
             </section>
+            
         </main>
 
     );

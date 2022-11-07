@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// import './index.css';
 import App from './components/App/App.js';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 // Provider allows us to use redux within our react app
@@ -9,6 +9,8 @@ import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
+import Theme from './components/Styles/Theme.jsx';
+import { ThemeProvider } from '@mui/material';
 import axios from 'axios';
 
 // Create the rootSaga generator function
@@ -78,9 +80,13 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={storeInstance}>
-        <App />
-        </Provider>
+
+        <ThemeProvider theme={Theme}>
+            <Provider store={storeInstance}>
+            <App />
+            </Provider>
+        </ThemeProvider>
+        
     </React.StrictMode>,
     document.getElementById('root')
 );
